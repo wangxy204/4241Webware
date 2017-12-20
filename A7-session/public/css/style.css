@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+
+/*Style your own assignment! This is fun! */
+h1, h2{
+	font-family: 'Roboto Slab', serif;
+}
+p{
+	font-family: 'Roboto Slab', serif;
+	font-size: 14px;
+}
+h2{
+	margin-top: 0px;
+}
+h1{
+	margin-bottom: 0px;
+}
+#normal{
+	font-weight: normal;
+}
+body{
+	background-color: rgb(221,221,221);
+}
+
+}
+#background{
+	background-color: rgb(221,221,221); ;
+}
+.header{
+	background-color: rgb(100,162,255);
+}
+.black{
+	font-style: italic;
+}
+.content{
+	margin:auto;
+	
+	border: 3.5px solid grey;
+	width: 70%;
+	height: 120px;
+	margin-bottom: 3px;
+	
+}
+a:link{
+	color: blue;
+}
+a:visited{
+	color: grey;
+}
+a:hover{
+	color:rgb(100,200,255);
+}
+a:active{
+	color: red;
+}
+table,th,td{
+	border: 3px solid grey;
+}

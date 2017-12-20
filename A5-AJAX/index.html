@@ -1,0 +1,82 @@
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+SC|Timmana" rel="stylesheet">
+  </head>
+
+  <body>
+  <h1>Movie Search!</h1>
+  
+  <div id="navi">
+  <ul class="naviList">
+  <li><a href="index.html"class="selected">Home|</a></li>
+  <li><a href="edit.html">Edit Movie List|</a></li>
+  <li><a href="README.md">readme</a></li></ul></div>
+
+  <form action="search" method="get" onsubmit="return false;">
+  <input type="text" id="searchInput" name="search"/>
+  <button type="Submit" onclick="searchM();">Search</button>
+  </form>
+  <h2 id="mh2"></h2>
+  <ul id="movieList">
+  </ul>
+  
+  <p id="tip">Tip:</p>
+
+  </body>
+  <script>
+
+	var mh2 = document.getElementById('mh2');
+	mh2.innerHTML = "All movies available:";	
+			
+	var movieList = document.getElementById('movieList');
+	movieList.innerHTML = "";
+	
+	getMovies();
+	
+	function buildList( lit ) {
+	movieList.innerHTML = "";
+		lit.forEach(function(mv) {
+			if(mv!='no query provided'){
+				movieList.innerHTML += '<li>' + mv + '</li>';
+				}
+		})
+	}
+	
+	function getMovies(){
+		function reqListener () {
+		var tmplist = this.responseText.split(',');
+		buildList( tmplist )
+		}
+  
+		var oReq = new XMLHttpRequest();
+	
+		oReq.addEventListener("load", reqListener);
+
+		oReq.open("GET", "/getMovies");
+		
+		oReq.send();
+	}
+	
+	function searchM(){
+		function reqListener () {
+		var tmplist = this.responseText.split(',');
+		buildList( tmplist )
+		}
+  
+		var oReq = new XMLHttpRequest();
+	
+		oReq.addEventListener("load", reqListener);
+		var inputT = document.getElementById('searchInput');
+		oReq.open("GET", "/search?search="+inputT.value);
+		if(inputT.value){
+			mh2.innerHTML = 'Result for \"' + inputT.value + '\":';
+		}else{
+			mh2.innerHTML = "All movies available:";
+		}
+		oReq.send();
+		//window.alert(inputT.value);
+		//oReq.send('search='+inputT.value);
+	}
+  </script>
+  </html>

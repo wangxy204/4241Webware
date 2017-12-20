@@ -1,0 +1,123 @@
+#login-panel {
+    margin-top: 200px;
+}
+
+#register-panel {
+    margin-top: 200px;
+}
+
+#friend-search-list {
+    margin-top: 200px;
+}
+
+#create-room-panel {
+    margin-top: 200px;
+}
+
+.ui.labeled.input {
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+#login-input-manager {
+    text-align: center;
+}
+
+#login-button-manager {
+    text-align: center;
+}
+
+#register-button-manager {
+    text-align: center;
+}
+
+.ui.secondary.button {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#register-input-manager {
+    text-align: center;
+}
+
+#friend-add-manager {
+    text-align: center;
+}
+
+#friend-input {
+    text-align: center;
+}
+
+#create-room-button {
+    margin-right: 10px;
+}
+
+#log-out-panel {
+
+    /*width: 25%;*/
+    /*height: 100%;*/
+    /*position: relative;*/
+
+    margin-top: 10px;
+    margin-right: 25px;
+    float: right;
+}
+
+#public-chat-room {
+    float: left;
+    text-align: center;
+
+    width: 40%;
+    height: 100%;
+    position: relative;
+
+}
+
+#chat-room-head {
+    height: 109px;
+}
+
+#private-room-panel {
+    margin-left: 500px;
+    margin-right: 450px;
+    margin-top: 10px;
+    /*width: 40%;*/
+    /*height: 100%;*/
+    /*float: left;*/
+    /*position: relative;*/
+}
+
+#new-online-panel {
+    margin-top: 50px;
+    text-align: left;
+}
+
+#new-friend-panel {
+    text-align: left;
+    margin-top: 30px;
+}
+
+#create-button-manager {
+    text-align: center;
+}
+
+#create-input-manager {
+    text-align: center;
+}
+
+#public-chat-content {
+    height: 75%;
+    /*border-radius: 25px;*/
+    border: 1px solid grey;
+    width: 300px;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: left;
+    overflow: scroll;
+}
+
+#public-message {
+    margin-left: 20px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}

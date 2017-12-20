@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CS4241 FINAL PROJECT</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="semantic/out/semantic.min.css">
+        <script src="semantic/out/semantic.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+
+        <!--create room panel-->
+        <div id="create-room-panel">
+
+            <h2 class="ui center aligned icon header">
+                <i class="add square icon"></i>
+                Create Room
+            </h2>
+
+            <div id="create-input-manager">
+
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Room Number:
+                    </div>
+                    <input id="room-number-input" placeholder="room number..." type="text">
+                </div>
+
+                <br>
+
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Friend User Name:
+                    </div>
+                    <input id="friend-name-input" placeholder="friend user name..." type="text">
+                </div>
+
+                <!--<label for="room-number-input">Room Number To Create:</label>-->
+                <!--<input id="room-number-input", type="text">-->
+                <!--<label for="friend-name-input">Friend to chat:</label>-->
+                <!--<input id="friend-name-input", type="text">-->
+            </div>
+
+            <div id="create-button-manager">
+
+                <button id="create-create-room" class="ui secondary button">
+                    Create
+                </button>
+
+                <button id="return-create-room" class="ui secondary button">
+                    Return
+                </button>
+
+                <!--<input id="create-create-room" type="button" name="create" value="Create">-->
+                <!--<input id="return-create-room" type="button" name="return" value="Return">-->
+            </div>
+
+        </div>
+
+        <!--handle login panel-->
+        <div id="login-panel" class="ui container">
+
+            <h2 class="ui center aligned icon header">
+                <i class="circular users icon"></i>
+                Chat Room
+            </h2>
+            <!--<h2>Login In With Account</h2>-->
+
+            <div id="login-input-manager">
+
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Username:
+                    </div>
+                    <input id="login-username" placeholder="username..." type="text">
+                </div>
+
+                <br>
+
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Password:
+                    </div>
+                    <input id="login-password" placeholder="password..." type="password">
+                </div>
+                <!--<label for="login-username" >Username:</label>-->
+                <!--<input id="login-username" type="text" name="username">-->
+                <!--<label for="login-password" >Password:</label>-->
+                <!--<input id="login-password" type="password" name="password">-->
+            </div>
+
+            <div id="login-button-manager" class="ui container">
+
+                <button id="login-login-button" class="ui secondary button">
+                    Login
+                </button>
+
+                <button id="login-register-button" class="ui secondary button">
+                    Register
+                </button>
+                <!---->
+                <!--<input id="login-login-button" type="button" name="login" value="Login">-->
+                <!--<input id="login-register-button" type="button" name="register" value="Register">-->
+            </div>
+
+        </div>
+
+        <!--handle register panel-->
+        <div id="register-panel" class="ui container">
+
+            <h2 class="ui center aligned icon header">
+                <i class="settings icon"></i>
+                <div class="content">
+                    Create New Account
+                </div>
+            </h2>
+
+            <!--<h2>Create New Account</h2>-->
+
+            <div id="register-input-manager">
+
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Your Username:
+                    </div>
+                    <input id="register-username" placeholder="your username..." type="text">
+                </div>
+
+                <br>
+
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Your Password:
+                    </div>
+                    <input id="register-password" placeholder="your password..." type="text">
+                </div>
+
+                <!--<label for="register-username" >Your Username:</label>-->
+                <!--<input id="register-username" type="text">-->
+                <!--<label for="register-password" >Your Password:</label>-->
+                <!--<input id="register-password" type="text">-->
+            </div>
+
+            <div id="register-button-manager">
+
+                <button id="register-register-button" class="ui secondary button">
+                    Register
+                </button>
+
+                <button id="register-return-button" class="ui secondary button">
+                    Return
+                </button>
+
+                <!--<input id="register-register-button" type="button" name="register" value="Register">-->
+                <!--<input id="register-return-button" type="button" name="return" value="Return">-->
+            </div>
+        </div>
+
+
+        <!--searching friends panel-->
+        <div id="friend-search-list" class="ui container">
+
+            <h2 class="ui center aligned icon header">
+                <i class="add user icon"></i>
+                Add Friend
+            </h2>
+
+            <div id="friend-input">
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Friend Username:
+                    </div>
+                    <input id="friend-search-input" placeholder="friend username..." type="text">
+                </div>
+            </div>
+
+            <div id="friend-add-manager">
+                <button id="friend-add-button" class="ui secondary button">
+                    Add
+                </button>
+
+                <button id="friend-return-button" class="ui secondary button">
+                    Return
+                </button>
+            </div>
+
+            <!--<div>-->
+                <!--<label for="friend-search-input">Username:</label>-->
+                <!--<input id="friend-search-input" type="text">-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--<input id="friend-add-button" type="button" name="search" value="Add">-->
+                <!--<input id="friend-return-button" type="button" name="search" value="Return">-->
+            <!--</div>-->
+
+        </div>
+
+        <!--log out button panel-->
+        <div id="log-out-panel">
+
+            <button id="log-out-button" class="ui right floated button">
+                <i class="sign out icon"></i>
+                Log Out
+            </button>
+
+            <button id="create-room-button" class="ui right floated button">
+                <i class="plus icon"></i>
+                Create Room
+            </button>
+
+            <br>
+
+            <div id="new-online-panel">
+
+
+                <h2 class="ui header">
+                    <i class="users icon"></i>
+                    <div class="content">
+                        Online Users
+                    </div>
+                </h2>
+
+
+                <!--<h2>Online User</h2>-->
+
+                <div id="on-line-user-list" class="ui middle aligned animated list">
+
+                    <!--<ul id="on-line-user-list"></ul>-->
+                </div>
+            </div>
+
+            <br>
+
+            <div id="new-friend-panel">
+
+                <h2 class="ui header">
+                    <i class="child icon"></i>
+                    <div class="content">
+                        Friends List
+                    </div>
+                </h2>
+
+                <!--<h2>Friends List</h2>-->
+
+                <div id="friends-list" class="ui middle aligned animated list">
+                    <!--<ul id="friends-list"></ul> -->
+
+                </div>
+
+                <div>
+                    <button id="add-friend-button" class="ui basic button">
+                        <i class="icon user"></i>
+                        Add Friend
+                    </button>
+                    <!--<input id="add-friend-button" type="button" name="add" value="Add Friend">-->
+                </div>
+            </div>
+
+            <!--<input id="log-out-button" type="button" name="logout" value="Log Out">-->
+        </div>
+
+        <!--needed????????????????????????-->
+        <!--<div id="create-room-button-panel">-->
+            <!--&lt;!&ndash;<input id="create-room-button" type="button" name="create room" value="Create Room">&ndash;&gt;-->
+        <!--</div>-->
+
+
+        <!--show online user-->
+        <!--<div id="on-line-user-panel">-->
+            <!--<h2>Online User</h2>-->
+
+            <!--<div>-->
+                <!--<ul id="on-line-user-list"></ul>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <!--&lt;!&ndash;friends list panel&ndash;&gt;-->
+        <!--<div id="friend-list-panel">-->
+            <!--<h2>Friends List</h2>-->
+
+            <!--<div>-->
+                <!--<ul id="friends-list"></ul>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--<button id="add-friend-button" class="ui basic button">-->
+                    <!--<i class="icon user"></i>-->
+                    <!--Add Friend-->
+                <!--</button>-->
+                <!--&lt;!&ndash;<input id="add-friend-button" type="button" name="add" value="Add Friend">&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--public chat room-->
+        <div id="public-chat-room">
+
+            <h2 class="ui center aligned icon header" id="chat-room-head">
+                <i class="comments outline icon"></i>
+                Public Chat Room
+            </h2>
+
+            <!--<h2 id="chat-room-head">Public Chat Room</h2>-->
+
+            <div id="public-chat-content" class="ui list">
+                <!--<ul id="public-chat-content"></ul>-->
+            </div>
+
+            <!--<div>-->
+            <!--<label for="public-chat-input">Message:</label>-->
+            <!--<input id="public-chat-input" type="text">-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--<input id="public-chat-button" type="button" name="send" value="Send">-->
+            <!--</div>-->
+
+            <div class="ui action input">
+                <input placeholder="message to send..." type="text" id="public-chat-input">
+                <button class="ui button" id="public-chat-button">Send</button>
+            </div>
+
+        </div>
+
+
+        <!--private room panel-->
+        <div id="private-room-panel">
+
+            <h2 class="ui center aligned icon header" id="chat-room-head">
+                <i class="tags icon"></i>
+                Private Room
+            </h2>
+
+            <!--<h2>Private Room Panel</h2>-->
+
+            <div id="private-room-list">
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!--request from other user panel-->
+        <div id="request-from-other">
+            <h2 id="request-from-who"></h2>
+
+            <div>
+                <input id="accept-request-button" type="button" name="accept" value="Accept">
+                <input id="reject-request-button" type="button" name="reject" value="Reject">
+            </div>
+
+        </div>
+
+        <!--request to create room from other panel-->
+        <div id="request-to-create-room">
+
+            <h2 id="room-request-from-who"></h2>
+
+            <div>
+                <input id="accept-room-button" type="button" name="accept" value="Accept">
+                <input id="reject-room-button" type="button" name="reject" value="Reject">
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="client.js"></script>
+
+
+    </body>
+</html>

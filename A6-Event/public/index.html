@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+<body style="background-color:#66c2ff;">
+
+<div  style="background-color: #ffe6e6; font-family: 'Bungee', cursive; "><h1 id="clr" align="center" style="font-size: 70px;">CS4241 Assignment 6</h1></div>
+
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<p align="center">This is the onclick event. The function is to get the current time.</p>
+<div align="center"><button id="button" align="center" class="btn btn-success">Click me to get time</button></div>
+<p id="time" align="center"></p>
+<script>
+document.getElementById("button").addEventListener("click",
+function(){
+    document.getElementById("time").innerHTML = Date();
+})
+</script>
+<p align="center">This is for oninput event</p>
+<p id="sub"><input  type="text" id="input1" oninput="input1()"><br></p>
+<p id="out" align="center"></p>
+<script type="text/javascript">
+function input1(){
+  var v = document.getElementById("input1").value;
+  document.getElementById("out").innerHTML = "Your input is :" + v;
+}
+</script>
+
+<p align="center">click the button to show hiden list</p>
+<div class="dropdown">
+<div align="center"><button id="111" align="center" class="btn btn-success">click me</button></div>
+<div id="droplist" class="dropdown-content">
+  <p align="center">CS1111</p>
+  <p align="center">CS2222</p>
+  <p align="center">CS3333</p>
+</div>
+</div></p>
+<style type="text/css">
+#clr{
+  margin-top: 0;
+  margin-bottom: 150px;
+}
+#sub {
+  text-align: center;
+  }
+
+button{
+  margin:auto;
+  display:block;
+}
+.dropdown {
+    margin: auto
+    display: inline-block;
+
+
+}
+.dropdown-content {
+    display: none;
+    margin: auto
+
+}
+.dropdown-content a {
+   display: block;
+   margin: auto
+}
+
+.dropdown-content a:hover {background-color:"black"
+margin: auto
+}
+
+.show {display:block;
+margin: auto}
+</style>
+
+<script type="text/javascript">
+  document.getElementById("111").onclick = function(){show()}
+  function show(){
+    document.getElementById("droplist").classList.toggle("show")
+  }
+</script>
+
+<p align="center">use your mouse to scroll</p>
+<div id="scroll"><h2 align="center">You scrolled 0 times</h2></div>
+<script type="text/javascript">
+  var c = 0;
+  window.addEventListener("wheel", function(){
+      c++
+      document.getElementById("scroll").innerHTML = "";
+      document.getElementById("scroll").innerHTML += "<h2 align='center'>You scrolled " + c + " times<h2>";
+        
+  })
+</script>
+
+<div align="center"><div id="inner"><h4 align="center">USING INNERTEXT TO OUTPUT PLAINTEXT</h4></div></div>
+<script type="text/javascript">
+  window.addEventListener("keypress", function(){
+    document.getElementById("inner")
+    .innerText = "this sentence is printed in innerText form"
+})
+</script>
+
+<div align="center"><a href="README.md">README</a></div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "cs4241-final-project",
+  "version": "1.0.0",
+  "description": "chatroom",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Ming Shen, Jingwei Shen, and Xinyuan Wang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "semantic-ui": "^2.2.6",
+    "socket.io": "^1.6.0",
+    "sqlite3": "^3.1.8"
+  }
+}

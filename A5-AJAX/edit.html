@@ -1,0 +1,133 @@
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="style.css"/>
+  
+<link href="https://fonts.googleapis.com/css?family=Alegreya+SC|Timmana" rel="stylesheet">
+  
+</head>
+
+<body>
+<h1>Movie List Edit</h1>
+  
+<div id="navi">
+<ul class="naviList">
+<li><a href="index.html">Home|</a></li>
+<li><a href="edit.html" class="selected">Edit Movie List|</a></li>
+ <li><a href="README.md">readme</a></li></ul></div>
+
+<div id="fm"><form action="/add" method="post" onsubmit="return false;">
+<label for="movieAdd">Input the movie you want to add:</label>
+<input type="text" name="movieAdd" id="madd"/>
+<input type="Submit" value="add" onclick="addm();"/>
+</form>
+  
+<form action="/delete" method="post" onsubmit="return false;">
+<label for="movieDelete">Input the movie you want to delete:</label>
+<input type="text" name="movieDelete" id="mdel">
+<input type="Submit" value="delete" onclick="delm();"/>
+</form></div>
+
+<form action="/sort" method="post" onsubmit="return false;">
+<button name="sortM" value="SortMovies" onclick="sortm();" id="msort">SortMovies</button></form>
+  
+<h2>Movie List</h2>
+<ul id="movieList">
+</ul>
+  
+<p id="tip">Tip: You can not add same movie twice.</p>
+<p id="ta">Technical Achievement: By clicking on SortMovie button, the movie list is sorted.</p>
+
+</body>
+<script>
+var movieList = document.getElementById('movieList');
+	movieList.innerHTML = "";
+	
+	getMovies();
+	
+	function buildList( lit ) {
+	movieList.innerHTML = "";
+		lit.forEach(function(mv) {
+			if(mv!='no query provided'){
+				movieList.innerHTML += '<li>' + mv + '</li>';
+				}
+		})
+	}
+	
+	function getMovies(){
+		function reqListener () {
+		var tmplist = this.responseText.split(',');
+		buildList( tmplist )
+		}
+  
+		var oReq = new XMLHttpRequest();
+	
+		oReq.addEventListener("load", reqListener);
+
+		oReq.open("GET", "/getMovies");
+		
+		oReq.send();
+	}
+	
+	function addm(){
+		var movieadd = document.getElementById('madd');
+		if(movieadd==null){
+		return;
+		}
+		function reqListener () {
+		var tmplist = this.responseText.split(',');
+		buildList( tmplist )
+		}
+  
+		var oReq = new XMLHttpRequest();
+	
+		oReq.addEventListener("load", reqListener);
+
+		oReq.open("POST", "/add");
+		oReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+		oReq.send('movieAdd=' + encodeURIComponent(movieadd.value));	
+	}
+	
+	function delm(){
+		var moviedel = document.getElementById('mdel');
+		if(moviedel==null){
+		return;
+		}
+		function reqListener () {
+		var tmplist = this.responseText.split(',');
+		buildList( tmplist )
+		}
+		var oReq = new XMLHttpRequest();
+	
+		oReq.addEventListener("load", reqListener);
+		oReq.open("POST", "/delete");
+		oReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+		oReq.send('movieDelete=' + encodeURIComponent(moviedel.value));	
+	}
+	
+	function sortm(){
+		var moviesort = document.getElementById('msort');
+		if(moviesort==null){
+		return;
+		}
+		function reqListener () {
+		var tmplist = this.responseText.split(',');
+		buildList( tmplist )
+		}
+  
+		var oReq = new XMLHttpRequest();
+	
+		oReq.addEventListener("load", reqListener);
+
+		oReq.open("POST", "/sort");
+		oReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+		
+		oReq.send('movieSort=' + encodeURIComponent(moviesort.value));	
+	}
+	
+</script>
+</html>
